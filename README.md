@@ -1,7 +1,7 @@
 # Mini-jeux Python
 
 ## Structure du projet
- 
+
 python-mini-jeux/
 │
 ├── main.py            # Point d'entrée du programme : menu principal, lancement de partie
@@ -21,5 +21,3 @@ python-mini-jeux/
 │
 ├── requirements.txt   # Dépendances éventuelles
 └── README.md          # Explications du projet
-
-
