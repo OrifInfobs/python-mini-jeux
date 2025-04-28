@@ -64,7 +64,4 @@ def play():
         "➕" = lettre correcte mais mal placée (présente dans le mot mais pas à la bonne position)
         """)
 
-        has_won = check_word()
-        if has_won:
-            print("Félicitations! Vous avez gagné cette partie!")
-            break
+        return check_word()
