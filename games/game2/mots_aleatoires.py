@@ -1,4 +1,4 @@
-hgfdtfcxjhgf = [
+wordle = [
 	"abats",
 	"abcès",
 	"abîme",

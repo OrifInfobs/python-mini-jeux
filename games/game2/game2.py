@@ -1,14 +1,14 @@
 import random
 import os
 import unicodedata
-from .mots_aleatoires import hgfdtfcxjhgf
+from .mots_aleatoires import wordle
 
 # Clear console function
-Clear = lambda: os.system("clear")
+Clear = lambda: os.system("cls")
 
 # Function to check the word
 def check_word():
-    secret_word = random.choice(hgfdtfcxjhgf)
+    secret_word = random.choice(wordle)
     attempts = 6
     has_won = False
     print("Le mot secret a été choisi. Vous avez à présent 6 essais pour le deviner.")
@@ -20,7 +20,7 @@ def check_word():
         ).lower()
     
     while attempts > 0:
-        print(f"Mot secret (debug): {secret_word}")  # Debug word reveal
+        #print(f"Mot secret (debug): {secret_word}") #Debug word reveal
         word = input("Entrez un mot de 5 lettres : ").strip()
         word = normalize(word)
         if len(word) == 5:
@@ -38,19 +38,21 @@ def check_word():
         print(f"Dommage! Vous avez perdu en raison d'avoir épuisé vos essais. Le mot secret était : {secret_word}")
 
     return has_won
-
-# Function to evaluate the letters and give feedback
+# Function to check letters in the word + their positions + occurrences. This was hell to write.
 def check_letters(word, secret_word):
+    secret_counter = {char: secret_word.count(char) for char in set(secret_word)}
+    seen_counter = {char: 0 for char in set(secret_word)}
     result = []
     for i in range(len(word)):
         if word[i] == secret_word[i]:
             result.append("✔")
-        elif word[i] in secret_word:
+            seen_counter[word[i]] += 1
+        elif word[i] in secret_word and seen_counter[word[i]] < secret_counter[word[i]]:
             result.append("➕")
+            seen_counter[word[i]] += 1
         else:
             result.append("❌")
     return "".join(result)
-
 # Main game function
 def play():
     while True:
@@ -63,5 +65,4 @@ def play():
         "❌" = Lettre incorrecte (non présente dans le mot)
         "➕" = lettre correcte mais mal placée (présente dans le mot mais pas à la bonne position)
         """)
-
         return check_word()
