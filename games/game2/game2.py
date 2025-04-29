@@ -60,7 +60,7 @@ def play():
         print("""
         \nBienvenue dans le jeu Wordle!
         Il faut deviner un mot secret de 5 lettres parmi une liste en 6 essais. Ces mots sont choisis aléatoirement et
-        ne sont pas forcément des mots du dictionnaire valides. (Px aaaaa, bbbbb, ccccc, ddddd, eeeee)
+        sont toujours des mots du dictionnaire valides.
         "✔" = lettre correcte et bien placée (présente dans le mot et à la bonne position)
         "❌" = Lettre incorrecte (non présente dans le mot)
         "➕" = lettre correcte mais mal placée (présente dans le mot mais pas à la bonne position)
