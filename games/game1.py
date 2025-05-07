@@ -1,20 +1,25 @@
 import random
-from utils import get_integer_input
 
 # Logique de cette fonction à remplacer par le jeux choisi
 def play():
-    """
-    Mini-jeu : Deviner un nombre entre 1 et 5.
-    Retourne True si le joueur devine, False sinon.
-    """
-    print("\n🎲 Bienvenue dans le mini-jeu : Devine le nombre !")
-    number_to_guess = random.randint(1, 5)
-    
-    guess = get_integer_input("Devinez un nombre entre 1 et 5 : ", 1, 5)
 
-    if guess == number_to_guess:
-        print("🎉 Correct ! Vous avez deviné le bon nombre.")
+    print("\n")
+    tries = 5
+    n1 = random.randint(0, 9)
+    n2 = random.randint(0, 9)
+    n3 = random.randint(0, 9)
+    n4 = random.randint(0, 9)
+    n5 = random.randint(0, 9)
+    n6 = random.randint(0, 9)
+    code = int(str(n1) + str(n2) + str(n3) + str(n4) + str(n5) + str(n6))
+    
+    essai = input("Il vous reste " + str(tries) + " essais pour trouver le code à 6 chiffres. Veuillez sélectionner votre essai : "  )
+
+    digit = [int(digit) for digit in str(essai)]
+
+    if essai == digit:
+        print("Correct ! Vous avez deviné le bon nombre.")
         return True
     else:
-        print(f"❌ Mauvais choix ! Le nombre était {number_to_guess}.")
+        print(f"Vous avez perdu ! Le code était {code}.")
         return False
