@@ -41,7 +41,9 @@ def check_word():
     print("\nVous avez à présent 6 essais pour le deviner.")
 # Attempt counter and word check loop
     while attempts > 0:
-        print(f"\nMot secret (debug): {original_word}")  # Debug word reveal
+
+#       print(f"\nMot secret (debug): {original_word}")  # Debug word reveal
+
 # Normalize user input
         word = normalize(input("\nEntrez un mot de 5 lettres : ").strip())
 # Validate user input word length
@@ -69,7 +71,8 @@ def check_word():
         print(f"Dommage ! Vous avez perdu. Le mot secret était : '{original_word}'.")
         print("============================================================")
     return has_won
-# Function to check letters in the word + their positions + occurrences. God please don't modify this.
+# Function to check letters in the word + their positions + occurrences. 
+# I had to modify this damn function from 85-91 since it was causing a bug. I don't know why yet but it was not counting the letters correctly.
 def check_letters(word, secret_word):
     secret_counter = {char: secret_word.count(char) for char in set(secret_word)}
     seen_counter = {char: 0 for char in set(secret_word)}
@@ -77,19 +80,21 @@ def check_letters(word, secret_word):
     for i in range(len(word)):
 # Correct letter and position
         if word[i] == secret_word[i]:
-            result.append("✔")  
+            result.append("✔")
             seen_counter[word[i]] += 1
 # Correct letter but wrong position
         elif word[i] in secret_word and seen_counter[word[i]] < secret_counter[word[i]]:
-            result.append("➕")  
-            seen_counter[word[i]] += 1
-# Correct letter but all occurrences of said letter are already accounted for
-        elif word[i] in secret_word:
-            result.append("➖")  
-            seen_counter[word[i]] += 1
+# Check if the letter has already been counted
+# But IMBEDDED WITHIN the "correct position" function as to prioritize the correct position first so over time in a game it won't start making mistakes.
+            if word.count(word[i]) <= secret_counter[word[i]]:
+                result.append("➕")
+                seen_counter[word[i]] += 1
+# All occurrences already accounted for
+            else:
+                result.append("➖") 
 # Letter not in the word
         else:
-            result.append("❌")  
+            result.append("❌")
     return "".join(result)
 # Main game function and boot to game manager
 def play():
