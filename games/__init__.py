@@ -1,2 +1,5 @@
+from .game3 import game3
+from .game1 import game1
+from .game5 import game5
 from .game2 import game2
-from . import game1, game3, game4, game5
+from .game4 import game4

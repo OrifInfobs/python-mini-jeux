@@ -1,8 +1,11 @@
 import random
 
 # Import des mini-jeux
-from games import game1, game3, game4, game5
+from games.game4 import game4
+from games.game1 import game1
 from games.game2 import game2
+from games.game3 import game3
+from games.game5 import game5
 
 def start_new_game():
     print("\nNouvelle partie commencée ! Bonne chance !\n")

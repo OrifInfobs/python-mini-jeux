@@ -120,3 +120,4 @@ Voici les symboles que vous verrez dans les résultats de vos essais:
 ============================================================
 """)
         return check_word()
+    
