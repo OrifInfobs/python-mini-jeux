@@ -2,12 +2,10 @@ import random
 
 # Fyi This file contains the main code for the grid of game 5 
 # R = Row and C = Column as ref 
-
 import random
 # Initialize a 9x9 grid for the game, each row is a different list so it can be modified independently without affecting the others. Would be real bad if it was a single list since everything would be linked together as one so it would be impossible to modify a single row without modifying the others.
 def init_Grid():
     return [[0] * 9 for _ in range(9)]
-
 # Print the grid for the player to see
 def display_Grid(grid):
     for row_index, row in enumerate(grid):
@@ -23,7 +21,6 @@ def display_Grid(grid):
         print(formatted_row)
 # Extra space for better readability based on GPT test run of grid
     print()
-
 # Check if a number can be placed in the grid without violating Sudoku rules
 def is_valid(grid, row, col, num):
     if num in grid[row] or num in [grid[r][col] for r in range(9)]:
@@ -32,7 +29,6 @@ def is_valid(grid, row, col, num):
     start_row, start_col = 3 * (row // 3), 3 * (col // 3)
 # Check if the number is already in the 3x3 subgrid by checking through the rows and columns of the subgrid.
     return all(grid[r][c] != num for r in range(start_row, start_row + 3) for c in range(start_col, start_col + 3))
-
 # Fill the grid with random numbers from 1 to 9 while enforcing Sudoku rules
 def fill_Grid(grid):
     for row in range(9):
@@ -47,7 +43,6 @@ def fill_Grid(grid):
                     break
                 attempts += 1
     return grid
-
 # Remove numbers from the grid, leaving 1-3 numbers in each 3x3 subgrid as hints
 def starting_Hints(grid):
     for subgrid_row in range(3):
@@ -63,7 +58,6 @@ def starting_Hints(grid):
             for row, col in positions[hints:]:
                 grid[row][col] = 0
     return grid
-
 # Update the grid with the player's guess if it's valid
 def update_Grid(grid, row, col, num):
     if is_valid(grid, row, col, num):
