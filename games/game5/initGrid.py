@@ -1,7 +1,6 @@
-import random
-
 # Fyi This file contains the main code for the grid of game 5 
 # R = Row and C = Column as ref 
+
 import random
 # Initialize a 9x9 grid for the game, each row is a different list so it can be modified independently without affecting the others. Would be real bad if it was a single list since everything would be linked together as one so it would be impossible to modify a single row without modifying the others.
 def init_Grid():
@@ -9,7 +8,7 @@ def init_Grid():
 # Print the grid for the player to see
 def display_Grid(grid):
     for row_index, row in enumerate(grid):
-        # Add a horizontal separator every 3 rows
+        # Add a horizontal separator every 3 rows for readability
         if row_index % 3 == 0 and row_index != 0:
             print("-" * 21)
         # Format the row with vertical separators every 3 columns

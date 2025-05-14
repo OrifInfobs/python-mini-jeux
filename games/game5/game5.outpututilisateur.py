@@ -1,6 +1,8 @@
+from game5.initGrid import update_Grid, is_valid, display_Grid
+
 def userOutput() :
     nextatempt = 1
     while nextatempt == 1 :
         row = int(input("Veuillez sélectionner la ligne de la case à remplir"))
         col = int(input("Veuillez maintenant sélectionner la colonne de la case à remplir"))
-        num = int(input("VEuillez enfin sélectionner le nombre que vous voulez entrer (1-9)"))
+        num = int(input("Veuillez enfin sélectionner le nombre que vous voulez entrer (1-9)"))

@@ -1,16 +1,11 @@
 import random
 import os
 from .mots_aleatoires import wordle
-import unicodedata
+from utils.normalize import normalize
 
 # Clear console function
 Clear = lambda: os.system("cls")
 # Enlève les accents et met en minuscule le mot entré par l'utilisateur
-def normalize(input_text):
-    return ''.join(
-        c for c in unicodedata.normalize('NFD', input_text)
-        if unicodedata.category(c) != 'Mn'
-    ).lower()
 def check_word():
 # Difficulty selection
     print("Choisissez une difficulté :")
@@ -72,7 +67,7 @@ def check_word():
         print("============================================================")
     return has_won
 # Function to check letters in the word + their positions + occurrences. 
-# I had to modify this damn function from 85-91 since it was causing a bug. I don't know why yet but it was not counting the letters correctly.
+# I don't know why yet but it was not counting the letters correctly but now it is so pls no touch.
 def check_letters(word, secret_word):
     secret_counter = {char: secret_word.count(char) for char in set(secret_word)}
     seen_counter = {char: 0 for char in set(secret_word)}
