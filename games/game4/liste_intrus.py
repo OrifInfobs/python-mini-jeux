@@ -26,12 +26,12 @@ intrus = {
     "Films de Tim Burton": [["Beetlejuice", "Charlie et la chocolaterie"], ["La famille Addams", "Batman"]],
     "Fleuves d'Europe": [["Le fleuve rouge", "Le Pô", "L'Escaut"], ["Le Danube"]],
     "Mouvements artistiques": [["Le cubisme", "Le fauvisme", "Le fabulisme"], ["Le symbolisme"]],
-    "Nombres premiers": [["2", "5", "13"], ["30"]],
+    "Nombres premiers": [["41", "29", "23"], ["30"]],
     "Noms de villes françaises": [["Vatan", "Nigaud", "Bidon"], ["Simplé"]],
     "Vocabulaire de la poésie": [["Sonnet", "Litote", "Assonance"], ["Alexandrin"]],
 }
 
-infos_annexes = {
+infosAnnexes = {
     "Les fleurs": "Les fleurs sont souvent utilisées pour exprimer des émotions et des sentiments. Elles sont également un symbole de beauté et de nature.",
     "Films avec Tom Hanks": "Tom Hanks est un acteur américain connu pour ses rôles dans de nombreux films à succès, notamment 'Forrest Gump' et 'Saving Private Ryan'.",
     "Fromages français": "La France est célèbre pour sa grande variété de fromages, chacun ayant son propre goût et sa propre texture.",

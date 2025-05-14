@@ -2,6 +2,7 @@ import random
 import os
 from utils.normalize import normalize
 from .liste_intrus import intrus
+from .liste_intrus import infosAnnexes
 
 # Clear console function
 def Clear():
@@ -12,7 +13,7 @@ def select_theme_and_imposter():
     available_themes = random.sample(list(intrus.keys()), 5)
     print("Choisissez un thème parmi les options suivantes :")
     for i, theme in enumerate(available_themes, start=1):
-        print(f"{i}. {theme}")
+        print(f"{i}. {theme} ({infosAnnexes[theme]})")
     while True:
         try:
 # Get the player's choice
@@ -87,7 +88,7 @@ def play():
 ============================================================
 
 L'objectif est de trouver le mot intrus parmi les 4 qui seront listés. Vous devez trouver le mot secret en choisissant
-parmi les 4 mots proposés. Ne vous souciez pas, les accents ou majuscules ne comptent pas.
+parmi les 4 mots proposés.
 
 Bonne chance! 
               
