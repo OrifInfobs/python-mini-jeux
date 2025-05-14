@@ -9,7 +9,7 @@ def userOutput() :
             startloop = 0
         else :
             modification = input("Veuillez sélectionner (Oui) ou (Non) pour la modification d'erreur : ")
-
+    # if the user wants to play without modifications allowed
     nextatempt = 10
     if modification == "Oui" :
         while nextatempt == 10 :
@@ -18,6 +18,7 @@ def userOutput() :
             num = int(input("Veuillez enfin sélectionner le nombre que vous voulez entrer (1-9)"))
             if is_valid != True :
                 nextatempt = 0
+    # if the user wants to play with modifications allowed
     else :
         while nextatempt >= 1 :
             row = int(input("Veuillez sélectionner la ligne de la case à remplir"))
