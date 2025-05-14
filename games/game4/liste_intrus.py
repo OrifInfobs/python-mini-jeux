@@ -1,6 +1,6 @@
 intrus = {
     "Les fleurs": [["Gerbera", "Cinéraire", "Edelweiss"], ["Jaunelle"]],
-    "Films avec Tom Hanks": [["Sully", "Seul au monde", "Da vinci code"], ["La ligne rougeS"]],
+    "Films avec Tom Hanks": [["Sully", "Seul au monde", "Da vinci code"], ["La ligne rouge"]],
     "Fromages français": [["Beaufort", "Munster", "L'époisses"], ["L'Etivaz"]],
     "Villes italiennes": [["Bari", "Vérone", "Trieste"], ["Cordoue"]],
     "Chevaliers de la Table ronde": [["Bohort", "Victor", "Gauvain"], ["Tristan"]],
@@ -21,14 +21,14 @@ intrus = {
     "Séries des années 80": [["Alf", "Superocpter", "Docteur Quinn"], ["K2000"]],
     "Montagnes": [["L'Aconcagua", "Le mont Anabalia", "Le mont Kosciuszko"], ["Le mont Denali"]],
     "Capitales d'Amérique du Sud": [["Santa Cruz", "Caracas", "Lima"], ["Santiago"]],
-    "Compositeurs allemands": [["Richard Wagner", "Erik Satie", "Richard Strauss"], ["Ludwig von Beethoven"]],
+    "Compositeurs allemands": [["Richard Wagner", "Ludwig von Beethoven", "Richard Strauss"], ["Erik Satie"]],
     "Chansons de Michael Jackson": [["Bad", "Dirty Diana", "Smooth Criminal"], ["Love me again"]],
-    "Films de Tim Burton": [["Beetlejuice", "Charlie et la chocolaterie"], ["La famille Addams", "Batman"]],
+    "Films de Tim Burton": [["Beetlejuice", "Charlie et la chocolaterie", "La famille Addams"], ["Batman"]],
     "Fleuves d'Europe": [["Le Danube", "Le Pô", "L'Escaut"], ["Le fleuve rouge"]],
     "Mouvements artistiques": [["Le cubisme", "Le fauvisme", "Le fabulisme"], ["Le symbolisme"]],
     "Nombres premiers": [["41", "29", "23"], ["30"]],
-    "Noms de villes françaises": [["Vatan", "Nigaud", "Bidon"], ["Simplé"]],
-    "Vocabulaire de la poésie": [["Sonnet", "Litote", "Assonance"], ["Alexandrin"]],
+    "Noms de villes françaises": [["Vatan", "Simplé", "Bidon"], ["Nigaud"]],
+    "Vocabulaire de la poésie": [["Sonnet", "Alexandrin", "Assonance"], ["Litote"]],
 }
 
 infosAnnexes = {
