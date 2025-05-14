@@ -24,4 +24,3 @@ def introduction() :
                 termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
     wait_for_any_key()
-introduction()
