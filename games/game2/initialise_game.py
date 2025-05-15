@@ -14,6 +14,5 @@ def initialize_game(): # Initialize the game by selecting a difficulty level and
         print(f"\nLe mot secret a été choisi. Voici un indice : la première lettre est '{secret_word[0]}'.")
     else:
         print("\nLe mot secret a été choisi. Aucun indice n'est donné.")
-    
     print("\nVous avez à présent 6 essais pour le deviner.")
     return original_word, secret_word

@@ -1,5 +1,5 @@
 from utils.normalize import normalize
-from .checkletters import check_letters
+from .check_letters import check_letters
 def play_game(secret_word, original_word): # Main game loop where the player attempts to guess the secret word.
     attempts = 6  # Attempts counter
     total_attempts = 0
