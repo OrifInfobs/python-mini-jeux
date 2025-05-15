@@ -1,5 +1,4 @@
-from initGrid import is_valid
-from initGrid import update_Grid
+from grid_is_valid import is_valid
 def userOutput() :
     startloop = 1
     modification = input("Permettre les modifications en cas d'erreur ? (Oui/Non)")
