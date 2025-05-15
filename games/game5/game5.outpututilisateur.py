@@ -1,5 +1,3 @@
-from game5.initGrid import update_Grid, is_valid, display_Grid
-
 def userOutput() :
     nextatempt = 1
     while nextatempt == 1 :
