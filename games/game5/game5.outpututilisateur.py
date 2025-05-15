@@ -1,6 +1,6 @@
+from initGrid import is_valid
+from initGrid import update_Grid
 def userOutput() :
-    from initGrid import is_valid
-    from initGrid import update_Grid
     startloop = 1
     modification = input("Permettre les modifications en cas d'erreur ? (Oui/Non)")
     while startloop == 1 :
@@ -29,6 +29,4 @@ def userOutput() :
                 nextatempt = nextatempt - 1
                 print("Vous devez modifier votre dernière réponse afin de continuer.")
             else : 
-                    grid[row][col] = num
-
-    
+                return row,col,num
