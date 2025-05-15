@@ -2,7 +2,6 @@ import random
 import os
 
 # Mastermind numérique
-
 def play():
     clear = lambda: os.system('cls')
     clear()
@@ -15,7 +14,7 @@ def play():
     n5 = random.randint(0, 9)
     n6 = random.randint(0, 9)
     code = [n1, n2, n3, n4, n5, n6]
-    print("Bienvenue dans le jeu Mastermind !")
+    print("Bienvenue dans le jeu Mastermind !") # Intro message and rules
     print("============================================================")
     print("""
         Vous devez deviner un code à 6 chiffres.
@@ -23,10 +22,10 @@ def play():
         À chaque essai, vous recevrez des indices sur votre réponse.
         """)
     print("============================================================")
-    while tries > 0:
+    while tries > 0: #Main game loop
         essai = input(f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
         
-        if len(essai) != 6 or not essai.isdigit():
+        if len(essai) != 6 or not essai.isdigit(): # Validate input length and digits
             print("Veuillez entrer un code valide à 6 chiffres.")
             continue
         
@@ -36,12 +35,12 @@ def play():
             print("Correct ! Vous avez deviné le bon nombre.")
             return True
         
-        correct_position = sum(1 for i in range(6) if guess[i] == code[i])
-        correct_digits = sum(min(guess.count(d), code.count(d)) for d in set(guess)) - correct_position
+        correct_position = sum(1 for i in range(6) if guess[i] == code[i]) # Count correct digits in the correct position
+        correct_digits = sum(min(guess.count(d), code.count(d)) for d in set(guess)) - correct_position # Count correct digits in the wrong position
         
-        print(f"Faux ! {correct_position} chiffre(s) correct(s) à la bonne position, {correct_digits} chiffre(s) correct(s) mais à la mauvaise position.")
+        print(f"Faux ! {correct_position} chiffre(s) correct(s) à la bonne position, {correct_digits} chiffre(s) correct(s) mais à la mauvaise position.") # Display hints based on the guess
         print("\n")
         tries -= 1
 
-    print(f"Vous avez perdu ! Le code était {''.join(map(str, code))}.")
+    print(f"Vous avez perdu ! Le code était {''.join(map(str, code))}.") # Reveal the code if the user fails to guess it
     return False
