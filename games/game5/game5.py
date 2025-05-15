@@ -1,6 +1,6 @@
 import random
 from utils import get_integer_input
-from game5intro import introduction
+from games.game5.game5_intro import introduction
 
 # Logique de cette fonction à remplacer par le jeux choisi
 def play():

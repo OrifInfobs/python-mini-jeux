@@ -1,6 +1,6 @@
-from .difficulty_selection import difficulty_selection
+from .game2_difficulty_selection import difficulty_selection
 import random
-from .mots_aleatoires import wordle
+from .game2_mots_aleatoires import wordle
 from utils.normalize import normalize
 
 def initialize_game(): # Initialize the game by selecting a difficulty level and defining a secret word.

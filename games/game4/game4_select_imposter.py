@@ -1,5 +1,5 @@
 import random
-from games.game4.liste_intrus import intrus, infosAnnexes
+from games.game4.game4_liste_intrus import intrus, infosAnnexes
 from utils.normalize import normalize
 
 def select_theme_and_imposter(): # Function to randomly select a theme and an imposter word

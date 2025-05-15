@@ -1,5 +1,5 @@
 import random
-from grid_is_valid import is_valid
+from games.game5.game5_grid_is_valid import is_valid
 def fill_Grid(grid): # Fill the grid with random numbers from 1 to 9 while enforcing Sudoku rules
     for row in range(9):
         for col in range(9):

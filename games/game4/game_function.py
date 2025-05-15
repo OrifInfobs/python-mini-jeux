@@ -1,6 +1,6 @@
-from games.game4.check_player_guess import check_player_guess
-from games.game4.select_imposter import select_theme_and_imposter
-from games.game4.shuffle import shuffle_list
+from games.game4.game4_check_player_guess import check_player_guess
+from games.game4.game4_select_imposter import select_theme_and_imposter
+from games.game4.game4_shuffle import shuffle_list
 
 def game_start(): # Main internal game function
     while True:
