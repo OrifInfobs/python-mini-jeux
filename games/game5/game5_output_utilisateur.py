@@ -1,4 +1,4 @@
-from games.game5.game5_grid_is_valid import is_valid
+from .grid.game5_grid_is_valid import is_valid
 def userOutput() :
     startloop = 1
     modification = input("Permettre les modifications en cas d'erreur ? (Oui/Non)")

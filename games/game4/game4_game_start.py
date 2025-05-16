@@ -1,8 +1,8 @@
-from games.game4.game4_check_player_guess import check_player_guess
-from games.game4.game4_select_imposter import select_theme_and_imposter
-from games.game4.game4_shuffle import shuffle_list
+from .game4_check_player_guess import check_player_guess
+from .game4_select_imposter import select_theme_and_imposter
+from .game4_shuffle import shuffle_list
 
-def game_start(): # Main internal game function
+def game(): # Main internal game function
     while True:
         theme, normal_words, imposter_word = select_theme_and_imposter() # Select theme and imposter word
         words_with_imposter = normal_words + [imposter_word] # Combine and shuffle words
