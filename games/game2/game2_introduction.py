@@ -13,10 +13,9 @@ def introduction(): # Main game function and boot to game manager
         "Ces mots sont choisis aléatoirement et sont toujours des mots\n"
         "du dictionnaire valides.\n\n"
         "Voici les symboles que vous verrez dans les résultats de vos essais:\n\n"
-        + Fore.GREEN + Style.BRIGHT + "✔ = Lettre correcte et bien placée" + Style.RESET_ALL + "\n"
-        + Fore.RED + Style.BRIGHT + "❌ = Lettre incorrecte (non présente dans le mot)" + Style.RESET_ALL + "\n"
-        + Fore.YELLOW + Style.BRIGHT + "➕ = Lettre correcte mais mal placée" + Style.RESET_ALL + "\n"
-        + Fore.BLUE + Style.BRIGHT + "➖ = Lettre correcte mais toutes les occurrences ont déjà été comptées" + Style.RESET_ALL + "\n\n"
-        + Fore.CYAN + "Bonne chance!" + Style.RESET_ALL + "\n"
-        + Fore.MAGENTA + "="*60 + Style.RESET_ALL
+        "✔ = Lettre correcte et bien placée""\n"
+        "❌ = Lettre incorrecte (non présente dans le mot)""\n"
+        "➕ = Lettre correcte mais mal placée""\n"
+        "➖ = Lettre correcte mais toutes les occurrences ont déjà été comptées""\n\n"
+        "Bonne chance!""\n"
     )

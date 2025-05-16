@@ -1,5 +1,6 @@
 import random
-
+from colorama import Fore, Style
+from utils.rainbow import rainbow_text
 # Import des mini-jeux
 from games.game4 import game4
 from games.game1 import game1
@@ -19,12 +20,12 @@ def start_new_game():
         result = game.play()
 
         if not result:
-            print("\n💀 Vous avez perdu ! Fin de la partie.\n")
+            print(Fore.RED + "\n💀 Vous avez perdu ! Fin de la partie.\n" + Style.RESET_ALL)
             return  # Fin de la partie si on perd un mini-jeu
 
         print("✅ Bravo, vous avez réussi ce mini-jeu !\n")
 
-    print("🎉 Félicitations, vous avez gagné tous les mini-jeux ! 🏆\n")
+    print(rainbow_text("🎉 Félicitations, vous avez gagné tous les mini-jeux ! 🏆\n") + Style.RESET_ALL)
 
 def play_single_game(game_number):
     """
@@ -37,6 +38,6 @@ def play_single_game(game_number):
     result = selected_game.play()
 
     if result:
-        print("✅ Vous avez réussi ce mini-jeu !\n")
+        print(Fore.LIGHTGREEN_EX + "✅ Vous avez réussi ce mini-jeu !\n" + Style.RESET_ALL)
     else:
-        print("❌ Vous avez perdu ce mini-jeu.\n")
+        print(Fore.LIGHTRED_EX + "❌ Vous avez perdu ce mini-jeu.\n" + Style.RESET_ALL)

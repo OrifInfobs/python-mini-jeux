@@ -1,5 +1,8 @@
 import random
 import os
+from colorama import init, Fore, Style
+
+init(autoreset=True)
 
 # Mastermind numérique
 def play():
@@ -14,33 +17,33 @@ def play():
     n5 = random.randint(0, 9)
     n6 = random.randint(0, 9)
     code = [n1, n2, n3, n4, n5, n6]
-    print("Bienvenue dans le jeu Mastermind !") # Intro message and rules
-    print("============================================================")
-    print("""
+    print(Fore.CYAN + "Bienvenue dans le jeu Mastermind !")
+    print(Fore.YELLOW + "============================================================")
+    print(Fore.GREEN + """
         Vous devez deviner un code à 6 chiffres.
         Vous avez 5 essais pour le trouver.
         À chaque essai, vous recevrez des indices sur votre réponse.
         """)
-    print("============================================================")
+    print(Fore.YELLOW + "============================================================")
     while tries > 0: #Main game loop
-        essai = input(f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
-        
-        if len(essai) != 6 or not essai.isdigit(): # Validate input length and digits
-            print("Veuillez entrer un code valide à 6 chiffres.")
+        essai = input(Fore.LIGHTBLUE_EX + f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
+
+        if len(essai) != 6 or not essai.isdigit():
+            print(Fore.RED + "Veuillez entrer un code valide à 6 chiffres.")
             continue
-        
+
         guess = [int(digit) for digit in essai]
-        
+
         if guess == code:
-            print("Correct ! Vous avez deviné le bon nombre.")
+            print(Fore.GREEN + "Correct ! Vous avez deviné le bon nombre.")
             return True
-        
-        correct_position = sum(1 for i in range(6) if guess[i] == code[i]) # Count correct digits in the correct position
-        correct_digits = sum(min(guess.count(d), code.count(d)) for d in set(guess)) - correct_position # Count correct digits in the wrong position
-        
-        print(f"Faux ! {correct_position} chiffre(s) correct(s) à la bonne position, {correct_digits} chiffre(s) correct(s) mais à la mauvaise position.") # Display hints based on the guess
+
+        correct_position = sum(1 for i in range(6) if guess[i] == code[i])
+        correct_digits = sum(min(guess.count(d), code.count(d)) for d in set(guess)) - correct_position
+
+        print(Fore.RED + f"Faux ! {correct_position} chiffre(s) correct(s) à la bonne position, {correct_digits} chiffre(s) correct(s) mais à la mauvaise position.")
         print("\n")
         tries -= 1
 
-    print(f"Vous avez perdu ! Le code était {''.join(map(str, code))}.") # Reveal the code if the user fails to guess it
+    print(Fore.MAGENTA + f"Vous avez perdu ! Le code était {''.join(map(str, code))}.")
     return False
