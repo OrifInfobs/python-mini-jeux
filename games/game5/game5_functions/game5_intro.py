@@ -1,10 +1,9 @@
 import os
 from utils.press_any_key import wait_for_any_key
-from .grid.game5_init_Grid import init_Grid
 from utils.colorama import Fore, Style
 
-def introduction() :
-    Clear = lambda : os.system ("cls")
+def introduction():
+    Clear = lambda: os.system("cls")
     Clear()
     print(Fore.MAGENTA + "="*120 + Style.RESET_ALL)
     print(Fore.YELLOW + Style.BRIGHT + "Bienvenue dans le 5e mini jeu : SUDOKU !" + Style.RESET_ALL + " 🎲")
@@ -13,4 +12,3 @@ def introduction() :
     print(Fore.CYAN + "Bonne chance !" + Style.RESET_ALL)
     print(Fore.MAGENTA + "="*120 + Style.RESET_ALL)
     wait_for_any_key()
-    init_Grid()
