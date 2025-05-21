@@ -26,7 +26,7 @@ wordle = [
 "cuire","cuite","culot","culte","cycle","cygne","dague","dalle","dames","danse","datée","dater","dates","débat","débit","début",
 "décès","déchu","décor","déçue","déçus","dédié","défis","dégât","dégel","degré","délai","délié","délit","delta","demie","démon",
 "dense","dents","dépit","dépôt","désir","dette","deuil","devez","devis","devra","diète","dieux","digne","digue","dilué","dîner",
-"dites","divan","divin","dogme","doigt","doive","donna","donne","donné","dorer","doser","doses","dotée","doter","dotés","douce",
+"dites","divan","divin","dogme","doigt","doive","donne","donné","dorer","doser","doses","dotée","doter","dotés","douce",
 "doués","doute","douze","doyen","drame","droit","drôle","dunes","duper","duras","durée","durer","dures","duvet","ébahi","ébène",
 "écale","écart","échec","échos","éclat","école","écran","écrié","écrit","écume","édité","effet","égale","égard","égaux","élans",
 "élève","élevé","élire","élite","elles","éloge","émail","émane","émise","encre","enfer","enfin","enflé","engin","enjeu","ennui",
@@ -65,12 +65,12 @@ wordle = [
 "orage","orale","ordre","orgue","orner","ortie","osent","otage","ouate","oubli","ouest","ouïes","ourse","outil","outre","ouvre",
 "ovule","oxyde","pacte","pages","païen","paire","pairs","pâlir","palis","palme","panne","parce","parcs","parer","paris","parle",
 "parlé","parmi","paroi","parti","parts","parue","passa","passe","passé","pâtée","pâtes","pâtir","patte","patin","paume","pause",
-"payée","payer","payés","péage","pêche","péché","pègre","peine","peiné","peint","pékin","peler","pelle","pénal","pendu","penne",
+"payée","payer","payés","péage","pêche","péché","pègre","peine","peiné","peint","peler","pelle","pénal","pendu","penne",
 "pense","pensé","pente","pépin","perçu","perdu","pères","péril","périr","perle","perte","peser","peste","petit","pétri","phare",
 "phase","photo","piano","pièce","pieds","piège","piété","pieux","piger","pilon","pince","pinte","pique","pires","piste","pitié",
 "pitre","pivot","place","placé","plage","plaie","plaît","plane","plans","plant","plate","plats","plèbe","plein","plier","plomb",
 "pluie","plume","pneus","poche","poêle","poème","poète","poids","poing","point","poire","polar","pôles","polir","pomme","pompe",
-"poney","ponts","porta","porte","porté","porto","ports","posée","poser","posés","poste","potes","potin","pouce","poule","pouls",
+"poney","ponts","porte","porté","ports","posée","poser","poste","potes","potin","pouce","poule","pouls",
 "poupe","prend","prête","prêté","prêts","prévu","prier","priés","prime","primé","prise","prive","privé","proie","promu","prône",
 "prose","proue","prune","puant","puces","puisé","puits","pulpe","punir","pures","purge","purin","quais","quand","quant","quart",
 "quasi","quels","quête","queue","quota","rabat","races","radar","radin","radon","radio","radis","ragot","raide","raids","rails",
@@ -91,14 +91,14 @@ wordle = [
 "tassa","tasse","tassé","tâter","taule","taupe","taxer","taxes","taxis","teint","telle","tempe","tempo","temps","tendu","tenir",
 "ténor","tenta","tente","tenté","tenue","tenus","terme","terne","terre","tests","têtes","texte","thème","thèse","tibia","tiède",
 "tiens","tient","tiers","tigre","tigré","tilde","tirée","tirer","tirés","tissé","tissu","titan","titre","toile","toits","tollé",
-"tombe","tombé","tonne","tonus","toqué","torse","total","tours","trace","tracé","trahi","train","trait","trame","trêve","tribu",
+"tombe","tonne","tonus","toqué","torse","total","tours","trace","tracé","trahi","train","trait","trame","trêve","tribu",
 "trier","trois","tronc","trône","trous","tuant","tubes","tuées","tuent","tueur","tuile","tuyau","types","tyran","unies","union",
 "unité","urnes","usage","usine","usuel","usure","utile","vache","vague","valet","valse","value","varie","varié","vaste","vécue",
 "veine","vendu","venez","venin","venir","vente","vents","venue","venus","vénus","verbe","verge","verni","verra","verre","verse",
-"versé","verso","verte","verts","vertu","verve","veste","vêtir","vêtus","veule","veuve","vexer","vidéo","vider","vides","vieil",
+"verso","verte","verts","vertu","verve","veste","vêtir","vêtus","veule","veuve","vexer","vidéo","vider","vides","vieil",
 "viens","vient","vieux","vigne","villa","ville","vingt","virer","viril","virus","visas","visée","viser","vital","vitre","vives",
 "vivra","vivre","vodka","vogue","voici","voies","voile","voire","volée","voler","volet","vomir","votée","voter","votes","votre",
-"vôtre","vouée","vouer","voués","voulu","voûte","voyez","voyou","vraie","vrais","wagon","yacht","zébré","zones"
+"vouée","vouer","voués","voulu","voûte","voyez","voyou","vraie","vrais","wagon","yacht","zébré","zones"
 ]
 
 

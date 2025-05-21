@@ -19,14 +19,14 @@ def play():
     code = [n1, n2, n3, n4, n5, n6]
     print(Fore.CYAN + "Bienvenue dans le jeu Mastermind !")
     print(Fore.YELLOW + "============================================================")
-    print(Fore.GREEN + """
+    print("""
         Vous devez deviner un code à 6 chiffres.
         Vous avez 5 essais pour le trouver.
         À chaque essai, vous recevrez des indices sur votre réponse.
         """)
     print(Fore.YELLOW + "============================================================")
     while tries > 0: #Main game loop
-        essai = input(Fore.LIGHTBLUE_EX + f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
+        essai = input(f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
 
         if len(essai) != 6 or not essai.isdigit():
             print(Fore.RED + "Veuillez entrer un code valide à 6 chiffres.")
