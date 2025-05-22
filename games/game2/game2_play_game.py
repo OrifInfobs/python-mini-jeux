@@ -4,11 +4,11 @@ from utils.colorama import Fore, Style
 from utils.rainbow import rainbow_text
 
 def play_game(secret_word, original_word, difficulty): # Main game loop where the player attempts to guess the secret word.
-    attempts = 6                 # Attempts counter
+    attempts = 6                                       # Attempts counter
     total_attempts = 0
     has_won = False
 
-    while attempts > 0:          # Attempt counter and word check loop
+    while attempts > 0:                                # Attempt counter and word check loop
         word = normalize(input("\nEntrez un mot de 5 lettres : ").strip())      # Normalize user input
         if len(word) == 5:                             # Validate user input word length
             result = check_letters(word, secret_word)  # Compare the word with the secret word

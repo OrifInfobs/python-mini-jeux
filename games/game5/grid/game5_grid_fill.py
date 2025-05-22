@@ -1,9 +1,9 @@
 import random
 from games.game5.grid.game5_grid_is_valid import is_valid
-from games.game5.grid.game5_find_empty  import find_empty
+from games.game5.grid.game5_find_empty import checkCaseAvailability
 
 def grid_fill(grid):
-    empty = find_empty(grid)    # Find the first empty cell in the grid
+    empty = checkCaseAvailability(grid)    # Find the first empty cell in the grid
     if not empty:               # If no empty cell is found, the grid is complete
         return True  
     row, col = empty            # Get the row and column of the empty cell

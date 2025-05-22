@@ -26,7 +26,7 @@ def display_Grid(grid, selected_row=None, selected_col=None):
                 cell_content = f"{color}{cell.center(cell_width)}{Style.RESET_ALL}" # Center the cell content
             row_str += cell_content                                                 # Add the cell content to the row string
             if (j + 1) % 3 == 0 and j != num_cols - 1:                              # Add separator after every 3 cells
-                row_str += "|"
+                row_str += "|"                                            
         print(row_str)
         if (i + 1) % 3 == 0 and i != num_cols - 1:
             print(sep)

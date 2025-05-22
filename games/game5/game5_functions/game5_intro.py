@@ -14,8 +14,6 @@ def introduction():
     print(
         Fore.LIGHTYELLOW_EX +                              # Instructions on how to select grid cells
         "\nPour placer un nombre, indiquez d'abord le numéro de la ligne (1-9), puis le numéro de la colonne (1-9), puis le nombre à placer (1-9).\n"
-        "Les numéros de lignes sont affichés à gauche, les numéros de colonnes en haut de la grille.\n"
-        "La case sélectionnée sera entourée de crochets [ ].\n" +
-        Style.RESET_ALL
+        "Les numéros de lignes sont affichés à gauche, les numéros de colonnes en haut de la grille.\n" + Style.RESET_ALL
     )
     wait_for_any_key()

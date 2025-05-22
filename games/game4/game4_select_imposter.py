@@ -2,14 +2,14 @@ import random
 from .game4_liste_intrus import intrus, infosAnnexes
 from utils.normalize import normalize
 
-def select_theme_and_imposter():                             # Function to randomly select a theme and an imposter word
-    available_themes = random.sample(list(intrus.keys()), 5) # Select 5 random themes from the available keys in the `intrus` dictionary
+def select_theme_and_imposter():                                # Function to randomly select a theme and an imposter word
+    available_themes = random.sample(list(intrus.keys()), 5)    # Select 5 random themes from the available keys in the `intrus` dictionary
     print("Choisissez un thème parmi les options suivantes :")
     for i, theme in enumerate(available_themes, start=1):
         info = infosAnnexes.get(theme, "Aucune information disponible")       # Safely get the info or a default message
-        print(f"{i}. {theme} ({info})")                     # Display the themes with their corresponding numbers
+        print(f"{i}. {theme} ({info})")                         # Display the themes with their corresponding numbers
     while True:
-        try:                                                # Check for valid input as player chooses a theme
+        try:                                                    # Check for valid input as player chooses a theme
             choice = int(input("\nEntrez le numéro correspondant à votre choix : ").strip())        # Get the player's choice
             if 1 <= choice <= len(available_themes):
                 selected_theme = available_themes[choice - 1]
