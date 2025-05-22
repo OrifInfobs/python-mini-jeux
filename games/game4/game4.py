@@ -4,7 +4,7 @@ import os
 
 Clear = lambda: os.system("cls")    # Clear console function
 
-def play():     # Main function when game is called
-    Clear()     # Clear the screen
+def play():                         # Main function when game is called
+    Clear()     
     introduction()
     return game()

@@ -29,7 +29,7 @@ def run_sudoku_game():
                 return False              # 12. End game
         if row is None:                   # 13. If user loses follow the instructions
             end_game(solution_grid)       # 14. Show solution 
-            return False                   # 15. End game
-        elif result(grid):        # 16. Check if the game is over
+            return False                  # 15. End game
+        elif result(grid):                # 16. Check if the game is over
             end_game(solution_grid)       # 17. If yes show solution
             return False                  # 18. End game

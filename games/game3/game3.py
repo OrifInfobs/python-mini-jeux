@@ -5,7 +5,8 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 
 Clear = lambda : os.system ("cls")
-# Logique de cette fonction à remplacer par le jeux choisi
+# Tirage de carte
+# Ce mini-jeu consiste à tirer des cartes numérotées de 1 à 10, et le but est d'atteindre un score de 100 points sans le dépasser.
 def play():
     Clear()
     print(Fore.CYAN + "Bienvenue dans ce mini-jeux qui mêle hasard et mémoire !  ")
@@ -18,7 +19,7 @@ def play():
             import msvcrt
             print(Fore.MAGENTA + "Bonne chance ! Appuyez sur n’importe quelle touche pour lancer le jeu. ")
             msvcrt.getch()
-        else: # For Unix-like systems
+        else:               # For Unix-like systems
             import termios
             import tty
             print(Fore.MAGENTA + "Bonne chance ! Appuyez sur n’importe quelle touche pour lancer le jeu. ")
@@ -30,39 +31,39 @@ def play():
             finally:
                 termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
-    wait_for_any_key()
+    wait_for_any_key() # Wait for user to press any key to start the game
     Clear()
-    boucle = 1
-    total = 0
+    boucle = 1         # Variable to control the loop
+    total = 0          # Variable to store the total score
     while boucle > 0 :
-        pioche = random.randint(1, 10)
+        pioche = random.randint(1, 10)          # Randomly draw a card between 1 and 10
         print(Fore.BLUE + "Choisir l’une de ces deux actions : ")
         print(Fore.YELLOW + "1. Continuer et tirer une nouvelle carte. ")
         print(Fore.YELLOW + "2. Arrêter la partie ")
         try:
-            prochaineAction = int(input(Fore.CYAN + "Quel est votre prochaine action ? (Entrez 1 ou 2) : "))
+            prochaineAction = int(input(Fore.CYAN + "Quel est votre prochaine action ? (Entrez 1 ou 2) : ")) 
         except ValueError:
             print(Fore.RED + "Entrée invalide. Veuillez entrer 1 ou 2.")
             continue
 
         Clear()
-        if prochaineAction == 1 and total >= 100 :
+        if prochaineAction == 1 and total >= 100 : # If the player has already exceeded 100 points and chooses to draw a new card
             boucle = 0
             print(Fore.RED + "C’est perdu ! Vous avez demandé à tirer une nouvelle carte. Le but du jeu est de s’arrêter dès que vous dépassez 100 points, et vous êtes à " + str(total + pioche) + " points.")
             return False
-        elif prochaineAction == 1 :
+        elif prochaineAction == 1 :                # If the player chooses to draw a new card
             print(Fore.GREEN + "Nouvelle carte piochée ! Vous avez obtenu " + str(pioche) + " points.  ")
             total = total + pioche
-        if prochaineAction == 2 and total < 100 :
+        if prochaineAction == 2 and total < 100 :  # If the player chooses to stop the game but has not reached 100 points
             boucle = 0
             print(Fore.RED + "C’est perdu ! Vous avez arrêté la partie, mais vous avez un score de " + str(total) + " points. Il faut au minimum obtenir un score de 100 avant d’arrêter la partie")
             return False
-        elif prochaineAction == 2 : 
+        elif prochaineAction == 2 :                # If the player chooses to stop the game and has reached 100 points
             boucle = 0
             calculation = int(input(Fore.CYAN + "Bien joué, vous venez de dépasser 100 points. Pour gagner la partie, veuillez rentrer de combien de points vous avez dépassé 100 :  "))
-            if calculation == (total - 100) :
+            if calculation == (total - 100) :      # If the player gives the correct difference
                 print(Fore.GREEN + "C’est gagné ! Vous avez bien arrêté dès que vous avez dépassé les 100 points, et vous avez pu donner la bonne différence. Vous avez dépassé 100 de " + str(total-100) + " points.")
                 return True
-            else :
+            else :                                 # If the player gives the wrong difference
                 print(Fore.RED + "C’est perdu ! Vous avez bien arrêté dès que vous avez dépassé les 100 points, mais vous n’avez pas donner la bonne différence. Vous avez dépassé 100 de " + str(total-100) + " points. ")
                 return False

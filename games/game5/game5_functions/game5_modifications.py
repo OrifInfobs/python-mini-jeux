@@ -1,4 +1,4 @@
-from games.game5.game5_functions.game5_output_utilisateur import ask_yes_no
+from games.game5.game5_functions.game5_yes_no import ask_yes_no
 
 def modification(modifications_left):                               # Ask the user if they want to modify their input and modify counter.
     while modifications_left > 0:

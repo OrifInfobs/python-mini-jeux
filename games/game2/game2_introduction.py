@@ -16,6 +16,7 @@ def introduction():              # Main game function and boot to game manager
         "✔ = Lettre correcte et bien placée""\n"
         "❌ = Lettre incorrecte (non présente dans le mot)""\n"
         "➕ = Lettre correcte mais mal placée""\n"
-        "➖ = Lettre correcte mais toutes les occurrences ont déjà été comptées""\n\n"
-        "Bonne chance!""\n"
+        "➖ = Lettre correcte mais toutes les occurrences de cette lettre ont déjà été comptées" 
+        "(Si vous écrivez deux A et il n'y en a qu'un seul dans le mot caché, le résultat montra une coche correcte (✔) pour indiquer qu'un des A est juste, mais le deuxième sera compté avec le symbole (➖))""\n\n"
+        "Bonne chance!\n"
     )
