@@ -1,7 +1,7 @@
 from time import sleep
 import os
 from typing import Any
-from game_manager import start_new_game
+#from game_manager import start_new_game
 
 board: list[Any] = list(range(1, 10))
 
@@ -102,7 +102,7 @@ def start_AI():
         turn += 1
     else:
         print('Equal, too bad. Going back to main menu now...')
-        return start_new_game()
+        return False
 
 def menu():
     while True:

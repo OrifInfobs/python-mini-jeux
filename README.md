@@ -1,5 +1,15 @@
 # Mini-jeux Python
 
+## Guide d'installation
+
+1. Copiez le repertoire Github dans votre éditeur de code.
+
+2. Veuillez ouvrir le terminal et écrire : "pip install colorama", une librairie de couleurs utilisée par cette collection de mini jeux.
+
+3. Il faudra toujours lancer le jeu depuis le main.py sinon le programme ne se lancera pas.
+
+4. Amusez-vous bien! ^^
+
 ## Structure du projet
 
 python-mini-jeux/
