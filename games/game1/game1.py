@@ -16,7 +16,7 @@ def play():
     n4 = random.randint(0, 9)
     n5 = random.randint(0, 9)
     n6 = random.randint(0, 9)
-    code = [n1, n2, n3, n4, n5, n6]                                         # Randomly generated code put into a list
+    code = [n1, n2, n3, n4, n5, n6]                                          # Randomly generated code put into a list
     print(Fore.CYAN + "Bienvenue dans le jeu Mastermind !")
     print("============================================================")
     print("""
@@ -25,8 +25,12 @@ def play():
         À chaque essai, vous recevrez des indices sur votre réponse.
         """)
     print(Fore.YELLOW + "============================================================")
-    while tries > 0:                                                        # Main game loop starts here
+    while tries > 0:                                                         # Main game loop starts here
         essai = input(f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
+
+        if essai == "041555":
+            print("Impossible, vous avez deviné le code secret! Vous avez gagné cette fois....")     # Easter egg win est 041555
+            return True
 
         if len(essai) != 6 or not essai.isdigit():                           # check if the input code is a 6-digit number
             print(Fore.RED + "Veuillez entrer un code valide à 6 chiffres.")
