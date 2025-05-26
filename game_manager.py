@@ -12,7 +12,7 @@ def start_new_game():
     print("\nNouvelle partie commencée ! Bonne chance !\n")
                                                              # Liste des mini-jeux à enchaîner
     games_list = [game1, game2, game3, game4, game5]
-    random.shuffle(games_list)                               # Fonctionnalité optionelle mélanger l'ordre des jeux
+    random.shuffle(games_list)                               # Fonctionnalité optionelle pour mélanger l'ordre des jeux
 
     for idx, game in enumerate(games_list, start=1):
         print(f"--- Mini-Jeu {idx} ---")

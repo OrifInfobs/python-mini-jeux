@@ -1,20 +1,22 @@
 from game_manager import start_new_game, play_single_game
 from utils.input_handler import get_valid_input
 from utils.colorama import Fore, Style
+from utils.rainbow import rainbow_text
+
 def main_menu():
     while True:
-        print(Fore.CYAN + Style.BRIGHT + "\n+ === Bienvenue dans les Mini-Jeux du Terminal ===")
-        print("1. Nouvelle Partie")
-        print(Fore.LIGHTYELLOW_EX + "2. Accès développeur (Choisir un mini-jeu)")
-        print(Fore.MAGENTA + Style.DIM + "3. Sortir" + Style.RESET_ALL)
-        choice = input("Votre choix (1, 2 ou 3) : ").strip()
+        print(Fore.CYAN + Style.BRIGHT + "\n+ === Bienvenue aux mini-jeux python de Daniel et Ryan! ===\n" + Style.RESET_ALL)
+        print("\n1. Nouvelle Partie")
+        print(Fore.LIGHTYELLOW_EX + "\n2. Accès développeur (Choisir un mini-jeu)")
+        print(Fore.MAGENTA + Style.DIM + "\n3. Sortir" + Style.RESET_ALL)
+        choice = input("\nVotre choix (1, 2 ou 3) : ").strip()
 
         if choice == "1":
             start_new_game()
         elif choice == "2":
             choose_single_game()
         elif choice == "3":
-            print("Merci d'avoir joué. À bientôt ! 👋")
+            print(rainbow_text("Merci d'avoir joué. À bientôt ! 👋"))
             break
         else:
             print("Entrée invalide, veuillez choisir 1, 2 ou 3.")

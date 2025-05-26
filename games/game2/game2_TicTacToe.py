@@ -1,14 +1,10 @@
 from time import sleep
 import os
 from typing import Any
-#from game_manager import start_new_game
 
 board: list[Any] = list(range(1, 10))
 
 #J'ai copy paste ce code trouvé sur Github x)
-
-def TicTacToe():
-    menu()
 
 def check_board(plyr):
     winners = ((0, 1, 2), (3, 4, 5), (6, 7, 8),
@@ -35,7 +31,7 @@ def plyer_move(num, shape):
             break
     print_board()
     if check_board(shape):
-        print((f"Player({num}) WIN",))
+        print((f"Player({num}) WINS",))
         return "tictactoe_win"
 
 def computer_move():
@@ -46,8 +42,8 @@ def computer_move():
             board[i] = "O"
             if check_board("O"):
                 print_board()
-                print(("Computer WIN"))
-                exit()
+                print("Computer WINS")
+                return "lose" 
             else:
                 board[i] = i + 1
     h = 0
@@ -73,6 +69,7 @@ def computer_move():
                 break
 
     print_board()
+    return None  
 
 def print_board():
     os.system('cls')
@@ -94,16 +91,18 @@ def start_AI():
     turn = 1
     while turn != 10:
         if turn % 2 != 0:
-            plyer_move(1, 'X')
+            result = plyer_move(1, 'X')
+            if result == "tictactoe_win":
+                return "win"
         if turn % 2 == 0:
-            print("Computer be thinkin' pls wait... ")
+            print("Computer be thinkin'... ")
             sleep(2)
-            computer_move()
+            result = computer_move()
+            if result == "lose":
+                return "lose"
         turn += 1
     else:
-        print('Equal, too bad. Going back to main menu now...')
-        return False
-
+        return "draw"
 def menu():
     while True:
         x = input("......... \n"
@@ -111,21 +110,14 @@ def menu():
                   "2.Wtf\n"
                   "3.Escape!\n"
                   " What is going on?")
-        if x == '1':
+        if x in ['1', '2', '3']:
             os.system('cls')
             print('3 seconds until start...')
             sleep(3)
-            start_AI()
-        elif x == '2':
-            os.system('cls')
-            print('3 seconds until start...')
-            sleep(3)
-            start_AI()
-        elif x == '3':
-            os.system('cls')
-            print("3 seconds until start...")
-            sleep(3)
-            start_AI()
+            result = start_AI()
+            return result  
         else:
             os.system('cls')
-            print(('pls enter a number'))
+            print('pls enter a number')
+def TicTacToe():
+    return menu()

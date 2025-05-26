@@ -23,12 +23,13 @@ def play():
         Vous devez deviner un code à 6 chiffres.
         Vous avez 5 essais pour le trouver.
         À chaque essai, vous recevrez des indices sur votre réponse.
+        Si vous arrivez pas à deviner le code, pourquoi pas appeler le numéro magique du helpdesk? ;)
         """)
     print(Fore.YELLOW + "============================================================")
     while tries > 0:                                                         # Main game loop starts here
         essai = input(f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
 
-        if essai == "041555":
+        if essai == "411355":
             print("Impossible, vous avez deviné le code secret! Vous avez gagné cette fois....")     # Easter egg win est 041555
             return True
 

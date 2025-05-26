@@ -1,6 +1,16 @@
 from games.game5.game5_functions.game5_yes_no import ask_yes_no
 
-def modification(modifications_left):                               # Ask the user if they want to modify their input after a guess, and modify counter
+def allow_modification():                                          # Ask if the user wants to allow modifications in case of an error at start of game
+    while True:
+        allow_modification = ask_yes_no("Permettre les modifications en cas d'erreur ?") 
+        if allow_modification:
+            print("Les modifications sont autorisées pour ce jeux.")
+            return True
+        else:
+            print("Les modifications ne sont donc pas autorisées.")
+            return False
+
+def modification(modifications_left):                               # Ask the user if they want to modify their input, and modify counter
     while modifications_left > 0:
         wants_modify = ask_yes_no(f"Souhaitez-vous modifier votre saisie ? (Modifications restantes : {modifications_left})")
         if wants_modify:
@@ -22,12 +32,3 @@ def modification(modifications_left):                               # Ask the us
             break
     return None, None, None, modifications_left
 
-def allow_modification():                                           # Ask if the user wants to allow modifications in case of an error at start of game
-    while True:
-        allow_modification = ask_yes_no("Permettre les modifications en cas d'erreur ?") 
-        if allow_modification:
-            print("Les modifications sont autorisées pour ce jeux.")
-            return True
-        else:
-            print("Les modifications ne sont donc pas autorisées.")
-            return False
