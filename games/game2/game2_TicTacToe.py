@@ -1,16 +1,20 @@
 from time import sleep
 import os
 from typing import Any
+from colorama import Fore, Style
+import random
+from utils.press_any_key import wait_for_any_key
 
 board: list[Any] = list(range(1, 10))
 
 #J'ai copy paste ce code trouvé sur Github x)
+def TicTacToe():
+    return menu()
 
 def check_board(plyr):
     winners = ((0, 1, 2), (3, 4, 5), (6, 7, 8),
                (0, 3, 6), (1, 4, 7), (2, 5, 8),
                (0, 4, 8), (2, 4, 6))
-
     for tup in winners:
         win = True
         for j in tup:
@@ -23,68 +27,70 @@ def check_board(plyr):
 
 def plyer_move(num, shape):
     while True:
-        move_p = int(input((f"Your turn({num}) choose your move: (1-9) ---> ",)))
+        try:
+            move_p = int(input(f"Your turn({num}): "))
+        except ValueError:
+            print("Entrée invalide. Veuillez entrer un nombre entre 1 et 9.")
+            continue
         if move_p not in range(1, 10):
+            print("Choix hors limites. Veuillez entrer un nombre entre 1 et 9.")
             continue
         if board[move_p - 1] == move_p:
             board[move_p - 1] = shape
             break
+        else:
+            print("Cette case est déjà prise. Choisissez-en une autre.")
     print_board()
     if check_board(shape):
         print((f"Player({num}) WINS",))
         return "tictactoe_win"
 
 def computer_move():
-    moves = ((0, 2, 6, 8), (4,), (1, 3, 5, 7))
-
     for i in range(0, 9):
         if board[i] == i + 1:
             board[i] = "O"
             if check_board("O"):
                 print_board()
                 print("Computer WINS")
-                return "lose" 
+                return "lose"
             else:
                 board[i] = i + 1
-    h = 0
-    for k in range(0, 9):
-        if board[k] == k + 1:
-            board[k] = "X"
-            if check_board("X"):
-                board[k] = "O"
-                h = 1
-                break
-            else:
-                board[k] = k + 1
 
-    if h == 0:
-        ch = 0
-        for tup in moves:
-            for i in tup:
-                if board[i] == i + 1:
-                    board[i] = 'O'
-                    ch = 1
-                    break
-            if ch == 1:
-                break
+    for i in range(0, 9):
+        if board[i] == i + 1:
+            board[i] = "X"
+            if check_board("X"):
+                board[i] = "O"
+                print_board()
+                return None
+            else:
+                board[i] = i + 1
+
+    available = [i for i in range(9) if board[i] == i + 1]
+    if available:
+        move = random.choice(available)
+        board[move] = "O"
 
     print_board()
-    return None  
+    return None
 
 def print_board():
     os.system('cls')
-    j = 1
-    for i in board:
-        end = " "
-        if j % 3 == 0:
-            end = "\n\n"
-        if i == 'X':
-            print((f"[{i}]", "red"), end=end)
-        elif i == 'O':
-            print((f"[{i}]", "blue"), end=end)
-        else:
-            print(f"[{i}]", end=end)
-        j += 1
+    print("\n   1   2   3")
+    print("  -------------")
+    for row in range(3):
+        row_str = f"{row+1} |"
+        for col in range(3):
+            val = board[row * 3 + col]
+            if val == 'X':
+                cell = f"{Fore.RED}X{Style.RESET_ALL}"
+            elif val == 'O':
+                cell = f"{Fore.BLUE}O{Style.RESET_ALL}"
+            else:
+                cell = f"{val}"
+            row_str += f" {cell} |"
+        print(row_str)
+        print("  -------------")
 
 def start_AI():
     print_board()
@@ -103,21 +109,18 @@ def start_AI():
         turn += 1
     else:
         return "draw"
+
 def menu():
     while True:
-        x = input("......... \n"
-                  "1.What?\n"
-                  "2.Wtf\n"
-                  "3.Escape!\n"
-                  " What is going on?")
-        if x in ['1', '2', '3']:
-            os.system('cls')
-            print('3 seconds until start...')
-            sleep(3)
-            result = start_AI()
-            return result  
-        else:
-            os.system('cls')
-            print('pls enter a number')
-def TicTacToe():
-    return menu()
+        Clear = lambda: os.system('cls')
+        Clear()
+        print("......... \n"
+              "\n1. What?\n"
+              "\n2. Wtf is this\n"
+              "\n3. Escape!\n")
+        wait_for_any_key()
+        os.system('cls')
+        print('3 seconds until start...')
+        sleep(3)
+        result = start_AI()
+        return result

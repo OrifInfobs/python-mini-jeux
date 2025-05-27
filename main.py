@@ -8,7 +8,7 @@ def main_menu():
         print(Fore.CYAN + Style.BRIGHT + "\n+ === Bienvenue aux mini-jeux python de Daniel et Ryan! ===\n" + Style.RESET_ALL)
         print("\n1. Nouvelle Partie")
         print(Fore.LIGHTYELLOW_EX + "\n2. Accès développeur (Choisir un mini-jeu)")
-        print(Fore.MAGENTA + Style.DIM + "\n3. Sortir" + Style.RESET_ALL)
+        print(Fore.BLACK + Style.DIM + "\n3. Sortir" + Style.RESET_ALL)
         choice = input("\nVotre choix (1, 2 ou 3) : ").strip()
 
         if choice == "1":

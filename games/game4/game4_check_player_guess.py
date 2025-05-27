@@ -1,7 +1,4 @@
 def check_player_guess(imposter_word, shuffled_words):      # Function to check the player's guess against the imposter word
-    print("\nChoisissez le mot intrus en entrant un numéro (1-4) :")
-    for i, word in enumerate(shuffled_words, start=1):
-        print(f"{i}. {word}")
     while True:
         try:
             choice = int(input("\nEntrez le numéro correspondant à votre choix : ").strip())      # Get player's choice as a number + error handling

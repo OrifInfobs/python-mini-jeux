@@ -1,9 +1,9 @@
 import os
 from utils.colorama import Fore, Style
 
-Clear = lambda: os.system("cls") # Clear console function
+Clear = lambda: os.system("cls")                            # Clear console function
 
-def introduction():              # Main game function and boot to game manager
+def introduction():                                         # Main game function and boot to game manager
     Clear()
     print(
         Fore.MAGENTA + "="*60 + Style.RESET_ALL + "\n"      # Set the color and style for the borders

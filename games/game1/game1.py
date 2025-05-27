@@ -29,8 +29,8 @@ def play():
     while tries > 0:                                                         # Main game loop starts here
         essai = input(f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
 
-        if essai == "411355":
-            print("Impossible, vous avez deviné le code secret! Vous avez gagné cette fois....")     # Easter egg win est 041555
+        if len(essai) == 10 and essai == "0583001355":
+            print("Impossible, vous avez deviné le code secret! Vous avez gagné cette fois....")     # Easter egg win est 0583001355
             return True
 
         if len(essai) != 6 or not essai.isdigit():                           # check if the input code is a 6-digit number

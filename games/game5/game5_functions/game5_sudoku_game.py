@@ -9,13 +9,15 @@ from games.game5.game5_functions.game5_check_endgame import result
 from games.game5.game5_functions.game5_select_difficulty import select_difficulty
 
 def run_sudoku_game():
-    min_hints, max_hints = select_difficulty()  # Ask for difficulty
+    min_hints, max_hints = select_difficulty()                         # Ask for difficulty
     grid = init_Grid()
     grid_fill(grid)
     solution_grid = copy.deepcopy(grid)
-    starting_Hints(grid, min_hints, max_hints)  # Pass difficulty to hints
+    grid, hint_positions = starting_Hints(grid, min_hints, max_hints)  # Get hints and their positions
+    player_moves = set()                                               # Track player moves
+
     while True:
-        action = userOutput(grid)
+        action = userOutput(grid, hint_positions, player_moves)
         if action == "submit":
             if not is_grid_full(grid):
                 print("La grille n'est pas encore complète. Remplissez toutes les cases avant de soumettre.")

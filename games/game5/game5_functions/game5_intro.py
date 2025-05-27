@@ -17,3 +17,4 @@ def introduction():
         "Les numéros de lignes sont affichés à gauche, les numéros de colonnes en haut de la grille.\n" + Style.RESET_ALL
     )
     wait_for_any_key()
+    

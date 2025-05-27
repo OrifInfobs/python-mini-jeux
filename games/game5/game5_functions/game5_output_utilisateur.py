@@ -1,10 +1,10 @@
 from games.game5.grid.game5_display_grid import display_Grid
 from games.game5.game5_functions.game5_yes_no import ask_yes_no
 
-def userOutput(grid):
+def userOutput(grid, hint_positions, player_moves):
     while True:
         print("\nVoici la grille actuelle :\n")
-        display_Grid(grid)
+        display_Grid(grid, hint_positions, player_moves)
         print("\n1. Remplir/modifier une case")
         print("\n2. Effacer une case")
         print("\n3. Soumettre la grille")
@@ -13,9 +13,13 @@ def userOutput(grid):
             try:
                 row = int(input("Numéro de ligne (1-9) : ")) - 1
                 col = int(input("Numéro de colonne (1-9) : ")) - 1
+                if (row, col) in hint_positions:
+                    print("Vous ne pouvez pas modifier une case d'indice initiale !")
+                    continue
                 num = int(input("Nombre à placer (1-9) : "))
                 if 0 <= row < 9 and 0 <= col < 9 and 1 <= num <= 9:
                     grid[row][col] = num
+                    player_moves.add((row, col))
                 else:
                     print("Entrée hors limites.")
             except ValueError:
@@ -24,8 +28,12 @@ def userOutput(grid):
             try:
                 row = int(input("Numéro de ligne (1-9) à effacer : ")) - 1
                 col = int(input("Numéro de colonne (1-9) à effacer : ")) - 1
+                if (row, col) in hint_positions:
+                    print("Vous ne pouvez pas effacer une case indice initial !")
+                    continue
                 if 0 <= row < 9 and 0 <= col < 9:
                     grid[row][col] = 0
+                    player_moves.discard((row, col))
                 else:
                     print("Entrée hors limites.")
             except ValueError:

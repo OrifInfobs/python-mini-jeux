@@ -7,8 +7,8 @@ def select_theme_and_imposter():                                # Function to ra
     available_themes = random.sample(list(intrus.keys()), 5)    # Select 5 random themes from the available keys in the `intrus` dictionary
     print("Choisissez un thème parmi les options suivantes :")
     for i, theme in enumerate(available_themes, start=1):
-        info = infosAnnexes.get(theme, "Aucune information disponible")       # Safely get the info or a default message
-        print(f"\n{i}. {Fore.BLUE}{theme}{Style.RESET_ALL} ({info})")                              # Display the themes with their corresponding numbers
+        info = infosAnnexes.get(theme)
+        print(f"\n{i}. {Fore.BLUE}{theme}{Style.RESET_ALL} ({info})")         # Display the themes with their corresponding numbers
     while True:
         try:                                                                  # Check for valid input as player chooses a theme
             choice = int(input("\nEntrez le numéro correspondant à votre choix : ").strip())        # Get the player's choice

@@ -9,32 +9,32 @@ from games.game3 import game3
 from games.game5 import game5
 
 def start_new_game():
-    print("\nNouvelle partie commencée ! Bonne chance !\n")
-                                                             # Liste des mini-jeux à enchaîner
+    print("\nNouvelle partie commencée ! Bonne chance !\n")    
     games_list = [game1, game2, game3, game4, game5]
-    random.shuffle(games_list)                               # Fonctionnalité optionelle pour mélanger l'ordre des jeux
+    random.shuffle(games_list)
 
+    tictactoe_win_detected = False
     for idx, game in enumerate(games_list, start=1):
         print(f"--- Mini-Jeu {idx} ---")
         result = game.play()
-
         if result == "tictactoe_win":
-            print(
-                rainbow_text(r"""🎉 Félicitations, vous avez gagné tous les mini-jeux grâce à votre victoire au TicTacToe ! 🏆\n
+            tictactoe_win_detected = True
+        if not result or result == "lose":
+            print(Fore.RED + "\n💀 Vous avez perdu ! Fin de la partie.\n" + Style.RESET_ALL)
+            return
+
+    if tictactoe_win_detected:
+        print(
+            rainbow_text(r"""🎉 Félicitations, vous avez gagné tous les mini-jeux grâce à votre victoire au TicTacToe ! 🏆\n
 ________   _ _____  ________   _ _____           
 |___  / | | |  __ \ |___  / | | |  __ \
    / /| | | | |  \/    / /| | | | |  \/
   / / | | | | | __    / / | | | | | __ 
 ./ /__| |_| | |_\ \ ./ /__| |_| | |_\ \
 \_____/\___/ \____/ \_____/\___/ \____/ """) + Style.RESET_ALL)
-            return
+        return
 
-        if not result:
-            print(Fore.RED + "\n💀 Vous avez perdu ! Fin de la partie.\n" + Style.RESET_ALL)
-            return                                          # Fin de la partie si on perd un mini-jeu
-
-        print("✅ Bravo, vous avez réussi ce mini-jeu !\n")
-
+    print("✅ Bravo, vous avez réussi ce mini-jeu !\n")
     print(
         rainbow_text(r"""🎉 Félicitations, vous avez gagné tous les mini-jeux ! 🏆\n
 ________   _ _____  ________   _ _____           
