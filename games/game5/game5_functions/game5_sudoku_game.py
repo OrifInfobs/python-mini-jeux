@@ -7,6 +7,8 @@ from games.game5.game5_functions.game5_endgame import end_game
 from games.game5.game5_functions.game5_output_utilisateur import userOutput
 from games.game5.game5_functions.game5_check_endgame import result
 from games.game5.game5_functions.game5_select_difficulty import select_difficulty
+from games.game5.game5_functions.game5_Zug_Zug import contains_zugzug_date
+
 
 def run_sudoku_game():
     min_hints, max_hints = select_difficulty()                         # Ask for difficulty
@@ -19,6 +21,8 @@ def run_sudoku_game():
     while True:
         action = userOutput(grid, hint_positions, player_moves)
         if action == "submit":
+            if contains_zugzug_date(grid):
+                return "zugzug"
             if not is_grid_full(grid):
                 print("La grille n'est pas encore complète. Remplissez toutes les cases avant de soumettre.")
                 continue 

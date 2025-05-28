@@ -29,7 +29,7 @@ def play():
     while tries > 0:                                                         # Main game loop starts here
         essai = input(f"Il vous reste {tries} essais pour trouver le code. Veuillez sélectionner votre essai : ")
 
-        if len(essai) == 10 and essai == "0583001355":
+        if len(essai) == 4 and essai == "1355":
             print("Impossible, vous avez deviné le code secret! Vous avez gagné cette fois....")     # Easter egg win est 0583001355
             return True
 

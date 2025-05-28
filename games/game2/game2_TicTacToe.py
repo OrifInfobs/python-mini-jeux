@@ -7,12 +7,15 @@ from utils.press_any_key import wait_for_any_key
 
 board: list[Any] = list(range(1, 10))
 
-#J'ai copy paste ce code trouvé sur Github x)
+# J'ai copy paste ce code que j'ai trouvé sur Github x)
+
 def TicTacToe():
+    global board
+    board = list(range(1, 10))  # Had to define this since otherwise it would load previous state
     return menu()
 
 def check_board(plyr):
-    winners = ((0, 1, 2), (3, 4, 5), (6, 7, 8),
+    winners = ((0, 1, 2), (3, 4, 5), (6, 7, 8),             # All winning combinations
                (0, 3, 6), (1, 4, 7), (2, 5, 8),
                (0, 4, 8), (2, 4, 6))
     for tup in winners:
@@ -40,6 +43,7 @@ def plyer_move(num, shape):
             break
         else:
             print("Cette case est déjà prise. Choisissez-en une autre.")
+
     print_board()
     if check_board(shape):
         print((f"Player({num}) WINS",))
@@ -68,9 +72,8 @@ def computer_move():
 
     available = [i for i in range(9) if board[i] == i + 1]
     if available:
-        move = random.choice(available)
+        move = random.choice(available)         # Randomize moves so game is easier, but will try to win if under threat
         board[move] = "O"
-
     print_board()
     return None
 

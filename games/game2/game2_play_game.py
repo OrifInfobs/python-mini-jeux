@@ -14,6 +14,7 @@ def play_game(secret_word, original_word, difficulty):
         word = normalize(input("\nEntrez un mot de 5 lettres : ").strip())
         if len(word) == 5:
             result = check_letters(word, secret_word)
+            attempts = attempts -1
             print("\n" + Fore.MAGENTA + "="*60 + Style.RESET_ALL)
             print(f"🔍 Résultat de l'essai : {Fore.CYAN}{result}{Style.RESET_ALL}")
             print(f"💡 Mot entré : {Fore.YELLOW}{word}{Style.RESET_ALL}")

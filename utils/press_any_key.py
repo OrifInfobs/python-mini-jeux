@@ -3,9 +3,7 @@ import os
 
 def wait_for_any_key():
     if os.name == 'nt': # For Windows
-        import msvcrt
-        print("Pour commencer la partie, appuyez sur n'importe quelle touche. ")
-        msvcrt.getch()
+        input()
     else: # For Unix-like systems
         import termios
         import tty
