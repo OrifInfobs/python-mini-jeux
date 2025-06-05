@@ -1,9 +1,23 @@
-def ask_yes_no(prompt):  # Function to ask the user a yes/no question
+"""
+Ask the user a yes/no question and return their response as a boolean.
+"""
+
+
+def ask_yes_no(prompt):
+    """
+    Prompt the user with a yes/no question and return True for yes,
+    False for no.
+
+    Args:
+        prompt (str): The question to ask the user.
+
+    Returns:
+        bool: True if the user answers yes, False otherwise.
+    """
     while True:
-        answer = input(prompt + " (Oui/Non) : ").strip().lower()
-        if answer in ["oui", "o"]:
+        response = input(f"{prompt} (o/n) : ").strip().lower()
+        if response in ("o", "oui", "y", "yes"):
             return True
-        elif answer in ["non", "n"]:
+        if response in ("n", "non", "no"):
             return False
-        else:
-            print("Veuillez répondre par Oui ou Non.")
+        print("Veuillez répondre par 'o' (oui) ou 'n' (non).")

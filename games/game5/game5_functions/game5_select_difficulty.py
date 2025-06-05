@@ -1,5 +1,6 @@
 from utils.input_handler import get_valid_input
 
+
 def select_difficulty():
     print("\nChoisissez une difficulté pour le Sudoku :")
     print("1. Facile (4-6 chiffres révélés par sous-grille)")

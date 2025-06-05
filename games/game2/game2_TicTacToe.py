@@ -1,34 +1,55 @@
+"""
+TicTacToe mini-game for the random words game (Mots Aléatoires).
+"""
 from time import sleep
 import os
+import random
 from typing import Any
 from colorama import Fore, Style
-import random
 from utils.press_any_key import wait_for_any_key
 
 board: list[Any] = list(range(1, 10))
 
-# J'ai copy paste ce code que j'ai trouvé sur Github x)
 
-def TicTacToe():
+def tictactoe():
+    """
+    Launch the TicTacToe mini-game and return the result.
+    Returns:
+        str: 'win', 'lose', or 'draw'.
+    """
     global board
-    board = list(range(1, 10))  # Had to define this since otherwise it would load previous state
+    board = list(range(1, 10))
     return menu()
 
+
 def check_board(plyr):
-    winners = ((0, 1, 2), (3, 4, 5), (6, 7, 8),             # All winning combinations
-               (0, 3, 6), (1, 4, 7), (2, 5, 8),
-               (0, 4, 8), (2, 4, 6))
+    """
+    Check if the given player has won the game.
+    Args:
+        plyr (str): Player symbol ('X' or 'O').
+    Returns:
+        str or None: 'tictactoe_win' if win, None otherwise.
+    """
+    winners = (
+        (0, 1, 2), (3, 4, 5), (6, 7, 8),
+        (0, 3, 6), (1, 4, 7), (2, 5, 8),
+        (0, 4, 8), (2, 4, 6)
+    )
     for tup in winners:
-        win = True
-        for j in tup:
-            if board[j] != plyr:
-                win = False
-                break
-        if win:
+        if all(board[j] == plyr for j in tup):
             return "tictactoe_win"
     return None
 
-def plyer_move(num, shape):
+
+def player_move(num, shape):
+    """
+    Handle the player's move.
+    Args:
+        num (int): Player number.
+        shape (str): Player symbol ('X').
+    Returns:
+        str or None: 'tictactoe_win' if win, None otherwise.
+    """
     while True:
         try:
             move_p = int(input(f"Your turn({num}): "))
@@ -36,49 +57,57 @@ def plyer_move(num, shape):
             print("Entrée invalide. Veuillez entrer un nombre entre 1 et 9.")
             continue
         if move_p not in range(1, 10):
-            print("Choix hors limites. Veuillez entrer un nombre entre 1 et 9.")
+            print(
+                "Choix hors limites. Veuillez entrer un nombre entre 1 et 9."
+            )
             continue
         if board[move_p - 1] == move_p:
             board[move_p - 1] = shape
             break
         else:
             print("Cette case est déjà prise. Choisissez-en une autre.")
-
     print_board()
     if check_board(shape):
-        print((f"Player({num}) WINS",))
+        print(f"Player({num}) WINS")
         return "tictactoe_win"
+    return None
+
 
 def computer_move():
-    for i in range(0, 9):
+    """
+    Handle the computer's move.
+    Returns:
+        str or None: 'lose' if computer wins, None otherwise.
+    """
+    for i in range(9):
         if board[i] == i + 1:
             board[i] = "O"
             if check_board("O"):
                 print_board()
                 print("Computer WINS")
                 return "lose"
-            else:
-                board[i] = i + 1
-
-    for i in range(0, 9):
+            board[i] = i + 1
+    for i in range(9):
         if board[i] == i + 1:
             board[i] = "X"
             if check_board("X"):
                 board[i] = "O"
                 print_board()
                 return None
-            else:
-                board[i] = i + 1
-
+            board[i] = i + 1
     available = [i for i in range(9) if board[i] == i + 1]
     if available:
-        move = random.choice(available)         # Randomize moves so game is easier, but will try to win if under threat
+        move = random.choice(available)
         board[move] = "O"
     print_board()
     return None
 
+
 def print_board():
-    os.system('cls')
+    """
+    Print the current TicTacToe board.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
     print("\n   1   2   3")
     print("  -------------")
     for row in range(3):
@@ -95,12 +124,18 @@ def print_board():
         print(row_str)
         print("  -------------")
 
-def start_AI():
+
+def start_ai():
+    """
+    Start the AI vs player TicTacToe game loop.
+    Returns:
+        str: 'win', 'lose', or 'draw'.
+    """
     print_board()
     turn = 1
     while turn != 10:
         if turn % 2 != 0:
-            result = plyer_move(1, 'X')
+            result = player_move(1, 'X')
             if result == "tictactoe_win":
                 return "win"
         if turn % 2 == 0:
@@ -110,20 +145,26 @@ def start_AI():
             if result == "lose":
                 return "lose"
         turn += 1
-    else:
-        return "draw"
+    return "draw"
+
 
 def menu():
+    """
+    Display the TicTacToe menu and start the game.
+    Returns:
+        str: 'win', 'lose', or 'draw'.
+    """
     while True:
-        Clear = lambda: os.system('cls')
-        Clear()
-        print("......... \n"
-              "\n1. What?\n"
-              "\n2. Wtf is this\n"
-              "\n3. Escape!\n")
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(
+            "......... \n"
+            "\n1. What?\n"
+            "\n2. Wtf is this\n"
+            "\n3. Escape!\n"
+        )
         wait_for_any_key()
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('3 seconds until start...')
         sleep(3)
-        result = start_AI()
+        result = start_ai()
         return result

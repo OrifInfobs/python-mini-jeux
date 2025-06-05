@@ -1,18 +1,39 @@
+"""
+Functions for handling modifications in Game 5 (Sudoku).
+"""
+
 from games.game5.game5_functions.game5_yes_no import ask_yes_no
 
-def allow_modification():                                          # Ask if the user wants to allow modifications in case of an error at start of game
-    while True:
-        allow_modification = ask_yes_no("Permettre les modifications en cas d'erreur ?") 
-        if allow_modification:
-            print("Les modifications sont autorisées pour ce jeux.")
-            return True
-        else:
-            print("Les modifications ne sont donc pas autorisées.")
-            return False
 
-def modification(modifications_left):                               # Ask the user if they want to modify their input, and modify counter
+def allow_modification():
+    """
+    Ask if the user wants to allow modifications in case of an error.
+    Returns:
+        bool: True if modifications are allowed, False otherwise.
+    """
+    while True:
+        allow_mod = ask_yes_no("Permettre les modifications en cas d'erreur ?")
+        if allow_mod:
+            print("Les modifications sont autorisées pour ce jeu.")
+            return True
+        print("Les modifications ne sont donc pas autorisées.")
+        return False
+
+
+def modification(modifications_left):
+    """
+    Ask the user if they want to modify their input and get the new input
+    Args:
+        modifications_left (int): Number of modifications left.
+    Returns:
+        tuple: (row, col, num, modifications_left) or
+            (None, None, None, modifications_left)
+    """
     while modifications_left > 0:
-        wants_modify = ask_yes_no(f"Souhaitez-vous modifier votre saisie ? (Modifications restantes : {modifications_left})")
+        wants_modify = ask_yes_no(
+            "Souhaitez-vous modifier votre saisie ? "
+            f"(Modifications restantes : {modifications_left})"
+        )
         if wants_modify:
             try:
                 row = int(input("Numéro de ligne (1-9) : ")) - 1
@@ -28,7 +49,4 @@ def modification(modifications_left):                               # Ask the us
                 return row, col, num, modifications_left
             except ValueError:
                 print("Entrée invalide. Veuillez entrer des chiffres valides.")
-        else:
-            break
     return None, None, None, modifications_left
-

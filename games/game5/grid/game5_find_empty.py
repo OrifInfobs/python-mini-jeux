@@ -1,6 +1,20 @@
-def checkCaseAvailability(grid):
-    for i in range(9):          # Iterate for each row
-        for j in range(9):      # Iterate for each column
-            if grid[i][j] == 0: # Check index of both row and column as to determine if the space is empty.
-                return (i, j)   # Return the coordinates of the first empty space found
-    return None                 # If no empty space is found, return None for end_game to check
+"""
+Functions to find empty cells in the Sudoku grid for Game 5 (Sudoku).
+"""
+
+
+def find_empty(grid):
+    """
+    Find the first empty cell (with value 0) in the Sudoku grid.
+
+    Args:
+        grid (list[list[int]]): The Sudoku grid.
+
+    Returns:
+        tuple[int, int] | None: The (row, col) of the first empty cell.
+    """
+    for i, row in enumerate(grid):
+        for j, value in enumerate(row):
+            if value == 0:
+                return i, j
+    return None

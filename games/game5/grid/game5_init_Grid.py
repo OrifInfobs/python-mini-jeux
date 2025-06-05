@@ -1,6 +1,13 @@
-# Desc: The positions of each individual grid are calculated by multiplying the subgrid row and column by 3,
-# to get the starting position of the subgrid, then iterating through the next 3 rows and columns, 
-# to find and get any grid position the player wants to fill. 
+"""
+Initialize the Sudoku grid for Game 5.
+"""
 
-def init_Grid():
-    return [[0] * 9 for _ in range(9)]      # Initialize a 9x9 grid with zeros, an empty Sudoku grid
+
+def init_grid():
+    """
+    Create and return an empty 9x9 Sudoku grid.
+
+    Returns:
+        list[list[int]]: A 9x9 grid filled with zeros.
+    """
+    return [[0] * 9 for _ in range(9)]

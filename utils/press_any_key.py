@@ -1,17 +1,21 @@
 import sys
-import os
+# Ignore errors it doesn't do anything
+# Found this code on StackOverflow so I'm not sure how it works, but what matters is that it works
 
 def wait_for_any_key():
-    if os.name == 'nt': # For Windows
-        input()
-    else: # For Unix-like systems
+    try:                        # Windows
+        import msvcrt
+        msvcrt.getch()
+    except ImportError:         # Unix/Linux/Mac
         import termios
         import tty
-        print("Pour commencer la partie, appuyez sur n'importe quelle touche. ")
+        if not sys.stdin.isatty():
+            input()
+            return
         fd = sys.stdin.fileno()
-        old_settings = termios.tcgetattr(fd)
+        old_settings = termios.tcgetattr(fd)   
         try:
-            tty.setraw(sys.stdin.fileno())
+            tty.setcbreak(fd)                   
             sys.stdin.read(1)
         finally:
-            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)    

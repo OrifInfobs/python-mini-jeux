@@ -1,14 +1,28 @@
+"""
+Check if the Sudoku game has ended for Game 5.
+"""
+
 from games.game5.grid.game5_grid_is_valid import is_valid
 
+
 def result(grid):
-    for row in range(9):                            # Vérifie que toutes les cases sont remplies et valides
+    """
+    Check if the Sudoku grid is complete and valid.
+
+    Args:
+        grid (list[list[int]]): The Sudoku grid.
+
+    Returns:
+        bool: True if the game is over (correct solution), False if incomplete.
+    """
+    for row in range(9):
         for col in range(9):
             num = grid[row][col]
             if num == 0:
-                return False                        # Incomplete grid so game continues
-            grid[row][col] = 0                      # On retire temporairement le nombre pour vérifier la validité
+                return False
+            grid[row][col] = 0
             if not is_valid(grid, row, col, num):
-                grid[row][col] = num                # Restaure la valeur
-                return True                         # Mauvaise solution donc game over
-            grid[row][col] = num                    # Restaure la valeur
-    return False                                    # Grille complète et correcte
+                grid[row][col] = num
+                return True
+            grid[row][col] = num
+    return False
