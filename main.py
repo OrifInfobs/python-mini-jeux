@@ -3,11 +3,19 @@ from utils.input_handler import get_valid_input
 from utils.colorama import Fore, Style
 from utils.rainbow import rainbow_text
 
+
 def main_menu():
     while True:
-        print(Fore.CYAN + Style.BRIGHT + "\n+ === Bienvenue aux mini-jeux python de Daniel et Ryan! ===\n" + Style.RESET_ALL)
+        print(
+            Fore.CYAN + Style.BRIGHT +
+            "\n+ === Bienvenue aux mini-jeux python de Ryan! ===\n" +
+            Style.RESET_ALL
+        )
         print("\n1. Nouvelle Partie")
-        print(Fore.LIGHTYELLOW_EX + "\n2. Accès développeur (Choisir un mini-jeu)")
+        print(
+            Fore.LIGHTYELLOW_EX +
+            "\n2. Accès développeur (Choisir un mini-jeu)"
+        )
         print(Fore.BLACK + Style.DIM + "\n3. Sortir" + Style.RESET_ALL)
         choice = input("\nVotre choix (1, 2 ou 3) : ").strip()
 
@@ -21,6 +29,7 @@ def main_menu():
         else:
             print("Entrée invalide, veuillez choisir 1, 2 ou 3.")
 
+
 def choose_single_game():
     print(Fore.LIGHTRED_EX + Style.BRIGHT + "\n=== Choisissez un mini-jeu ===")
     print("1. Mini-Jeu 1")
@@ -28,9 +37,10 @@ def choose_single_game():
     print("3. Mini-Jeu 3")
     print("4. Mini-Jeu 4")
     print("5. Mini-Jeu 5")
-    
+
     choice = get_valid_input("Votre choix (1-5) : ", ["1", "2", "3", "4", "5"])
     play_single_game(int(choice))
+
 
 if __name__ == "__main__":
     main_menu()

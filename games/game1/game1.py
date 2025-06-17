@@ -2,9 +2,10 @@ import os
 import random
 from colorama import init, Fore
 
+# Initialisation de Colorama pour réinitialiser les couleurs automatiquement
 init(autoreset=True)
 
-MAGIC_CODE = "1355"  # Code magique pour gagner instantanément
+MAGIC_CODE = "1355"  """Code magique pour gagner instantanément"""
 
 
 def clear_console():
