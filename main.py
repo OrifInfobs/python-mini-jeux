@@ -2,6 +2,7 @@ from game_manager import start_new_game, play_single_game
 from utils.input_handler import get_valid_input
 from utils.colorama import Fore, Style
 from utils.rainbow import rainbow_text
+from time import sleep
 
 
 def main_menu():
@@ -25,6 +26,7 @@ def main_menu():
             choose_single_game()
         elif choice == "3":
             print(rainbow_text("Merci d'avoir joué. À bientôt ! 👋"))
+            sleep(4)
             break
         else:
             print("Entrée invalide, veuillez choisir 1, 2 ou 3.")

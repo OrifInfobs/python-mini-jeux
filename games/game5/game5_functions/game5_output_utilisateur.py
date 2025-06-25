@@ -7,6 +7,7 @@ from colorama import Fore, Style
 
 from games.game5.grid.game5_display_grid import display_Grid
 from games.game5.game5_functions.game5_yes_no import ask_yes_no
+from games.game5.game5_functions.game5_Zug_Zug import partial_zugzug_hint
 
 
 def clear_console():
@@ -32,6 +33,7 @@ def user_output(grid, hint_positions, player_moves):
     last_message = ""
     while True:
         clear_console()
+        zugzug_hint_counter = 0
         if last_message:
             print(Fore.RED + last_message + Style.RESET_ALL)
             print()
@@ -51,6 +53,8 @@ def user_output(grid, hint_positions, player_moves):
             Fore.LIGHTYELLOW_EX + "\nVotre choix (1/2/3) : " + Style.RESET_ALL
         )
         choice = input(prompt).strip()
+        if partial_zugzug_hint(grid):
+            print(Fore.LIGHTYELLOW_EX + "Something need doing?" + Style.RESET_ALL)
         if choice == "1":
             try:
                 row = int(input("Numéro de ligne (1-9) : ")) - 1
