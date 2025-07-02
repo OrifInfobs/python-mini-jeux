@@ -1,3 +1,12 @@
+import os
+import sys
+
+# Ensure directory is always the exe location
+if getattr(sys, 'frozen', False):
+    os.chdir(os.path.dirname(sys.executable))
+else:
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 from game_manager import start_new_game, play_single_game
 from utils.input_handler import get_valid_input
 from utils.colorama import Fore, Style
