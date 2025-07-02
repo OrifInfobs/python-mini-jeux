@@ -36,7 +36,7 @@ def start_new_game():
             print(Fore.GREEN + "✅ Vous avez réussi ce mini-jeu !\n" + Style.RESET_ALL)
             zugzug_detected = True
             break
-        if not result or result == "lose":
+        if result in (False, "lose", "give_up"):
             print(Fore.RED + "\n💀 Vous avez perdu ! Fin de la partie.\n" + Style.RESET_ALL)
             return
         if result:

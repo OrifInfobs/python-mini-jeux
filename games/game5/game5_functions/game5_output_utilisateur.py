@@ -7,7 +7,7 @@ from colorama import Fore, Style
 
 from games.game5.grid.game5_display_grid import display_Grid
 from games.game5.game5_functions.game5_yes_no import ask_yes_no
-from games.game5.game5_functions.game5_Zug_Zug import partial_zugzug_hint
+from games.game5.game5_functions.game5_Zug_Zug import partial_zugzug_hint, zugzug_hint_counter
 
 
 def clear_console():
@@ -28,12 +28,14 @@ def user_output(grid, hint_positions, player_moves):
         player_moves (set[tuple[int, int]]): Positions filled by the player.
 
     Returns:
-        str: 'submit' if the user chooses to submit the grid.
+        str: 'submit' if the user chooses to submit the grid, or 'give_up' if they quit.
     """
     last_message = ""
     while True:
         clear_console()
-        zugzug_hint_counter = 0
+        hint_count = zugzug_hint_counter(grid)
+        if hint_count > 0:
+            print(Fore.LIGHTYELLOW_EX + f"Indice ZugZug partiel détecté : {hint_count}" + Style.RESET_ALL)
         if last_message:
             print(Fore.RED + last_message + Style.RESET_ALL)
             print()
@@ -48,9 +50,10 @@ def user_output(grid, hint_positions, player_moves):
         print(Fore.CYAN + "\nQue souhaitez-vous faire ?\n" + Style.RESET_ALL)
         print(Fore.GREEN + "  1. Remplir/modifier une case\n")
         print(Fore.GREEN + "  2. Effacer une case\n")
-        print(Fore.GREEN + "  3. Soumettre la grille\n" + Style.RESET_ALL)
+        print(Fore.GREEN + "  3. Soumettre la grille\n")
+        print(Fore.RED + "  4. Abandonner (perdre le mini-jeu)\n" + Style.RESET_ALL)
         prompt = (
-            Fore.LIGHTYELLOW_EX + "\nVotre choix (1/2/3) : " + Style.RESET_ALL
+            Fore.LIGHTYELLOW_EX + "\nVotre choix (1/2/3/4) : " + Style.RESET_ALL
         )
         choice = input(prompt).strip()
         if partial_zugzug_hint(grid):
@@ -59,6 +62,9 @@ def user_output(grid, hint_positions, player_moves):
             try:
                 row = int(input("Numéro de ligne (1-9) : ")) - 1
                 col = int(input("Numéro de colonne (1-9) : ")) - 1
+                if not (0 <= row < 9 and 0 <= col < 9):
+                    last_message = "Entrée hors limites."
+                    continue
                 if (row, col) in hint_positions:
                     last_message = (
                         "Vous ne pouvez pas modifier une case d'indice "
@@ -67,7 +73,7 @@ def user_output(grid, hint_positions, player_moves):
                     continue
 
                 num = int(input("Nombre à placer (1-9) : "))
-                if 0 <= row < 9 and 0 <= col < 9 and 1 <= num <= 9:
+                if 1 <= num <= 9:
                     grid[row][col] = num
                     player_moves.add((row, col))
                 else:
@@ -78,21 +84,25 @@ def user_output(grid, hint_positions, player_moves):
             try:
                 row = int(input("Numéro de ligne (1-9) à effacer : ")) - 1
                 col = int(input("Numéro de colonne (1-9) à effacer : ")) - 1
+                if not (0 <= row < 9 and 0 <= col < 9):
+                    last_message = "Entrée hors limites."
+                    continue
                 if (row, col) in hint_positions:
                     last_message = (
                         "Vous ne pouvez pas effacer une case indice initial !"
                     )
                     continue
-                if 0 <= row < 9 and 0 <= col < 9:
-                    grid[row][col] = 0
-                    player_moves.discard((row, col))
-                else:
-                    last_message = "Entrée hors limites."
+                grid[row][col] = 0
+                player_moves.discard((row, col))
             except ValueError:
                 last_message = "Entrée invalide."
         elif choice == "3":
             confirm = ask_yes_no("Voulez-vous soumettre la grille ?")
             if confirm:
                 return "submit"
+        elif choice == "4":
+            confirm = ask_yes_no("Êtes-vous sûr de vouloir abandonner et perdre ce mini-jeu ?")
+            if confirm:
+                return "give_up"
         else:
             last_message = "Choix invalide."

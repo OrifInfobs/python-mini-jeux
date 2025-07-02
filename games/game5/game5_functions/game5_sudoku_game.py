@@ -43,3 +43,6 @@ def run_sudoku_game():
                 print("Dommage ! Vous n'avez pas trouvé la solution.")
                 end_game(solution_grid)
                 return False
+        elif action == "give_up":
+            print("Vous avez abandonné le mini-jeu Sudoku.")
+            return "give_up"
