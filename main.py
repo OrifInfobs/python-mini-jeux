@@ -18,7 +18,7 @@ def main_menu():
     while True:
         print(
             Fore.CYAN + Style.BRIGHT +
-            "\n+ === Bienvenue aux mini-jeux python de Ryan! ===\n" +
+            "\n+ === Bienvenue aux mini-jeux python de Ryan et Daniel! ===\n" +
             Style.RESET_ALL
         )
         print("\n1. Nouvelle Partie")
