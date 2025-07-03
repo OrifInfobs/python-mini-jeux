@@ -26,7 +26,7 @@ def main_menu():
             Fore.LIGHTYELLOW_EX +
             "\n2. Accès développeur (Choisir un mini-jeu)"
         )
-        print(Fore.BLACK + Style.DIM + "\n3. Sortir" + Style.RESET_ALL)
+        print(Fore.BLACK + "\n3. Sortir" + Style.RESET_ALL)
         choice = input("\nVotre choix (1, 2 ou 3) : ").strip()
 
         if choice == "1":
